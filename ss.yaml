@@ -1,0 +1,15 @@
+apiVersion: external-secrets.io/v1beta1
+kind: SecretStore
+metadata:
+  name: vault-backend
+  namespace: example
+spec:
+  provider:
+    vault:
+      server: "https://your-domain:8200"
+      path: "data"
+      version: "v1"
+      auth:
+        tokenSecretRef:
+          name: "vault-token"
+          key: "token"
